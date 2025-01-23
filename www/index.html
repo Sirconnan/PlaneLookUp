@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Medrick Mariet">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <link rel="stylesheet" href="./css/default.css">
+    <link rel="stylesheet" href="./css/material.min.css">
+    <link rel="stylesheet" href="./css/material-icons.min.css">
+    <link rel="stylesheet" href="./iconfont/filled.css">
+    <link rel="stylesheet" href="./iconfont/material-icons.css">
+    <link rel="stylesheet" href="./iconfont/outlined.css">
+    <link rel="stylesheet" href="./iconfont/round.css">
+    <link rel="stylesheet" href="./iconfont/sharp.css">
+    <link rel="stylesheet" href="./iconfont/two-tone.css">
+    <link rel="stylesheet" href="./lib/leaflet/leaflet.css">
+    <link rel="stylesheet" href="./css/layout.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="icon" type="image/icon" href="./img/favicon.ico">
+    <script defer src="cordova.js"></script>
+    <script defer src="./js/material.min.js"></script>
+    <script defer src="./lib/leaflet/leaflet.js"></script>
+    <script defer src="./lib/dompurify/purify.js"></script>
+    <script defer src="./lib/html2canvas/html2canvas.js"></script>
+    <script defer src="./lib/jspdf/jspdf.umd.js"></script>
+    <script defer src="./js/scrtip.js"> </script>
+    <title>Plane Look Up</title>
+</head>
+
+<body id="body_index">
+    <header>
+
+    </header>
+    <main>
+        <section id="info_ville_avion">
+            <article id="chargement_loc">
+                <div class="mdl-spinner mdl-js-spinner is-active"></div>
+            </article>
+            <article id="erreur" class="mdl-card mdl-shadow--2dp cache">
+                <div class="mdl-card__title">
+                    <h2 class="mdl-card__title-text">Erreur</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                    <p id="info_erreur"></p>
+                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                    <button id="input_erreur" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+                        Accéder aux paramètres
+                    </button>
+                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                    <button id="input_recharger"
+                        class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored cache">
+                        Recharger la page
+                    </button>
+                </div>
+            </article>
+            <article id="chargement" class="mdl-card mdl-shadow--2dp cache">
+                <div class="mdl-card__title">
+                    <h2 class="mdl-card__title-text">Chargement</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                    <progress id="progress_demande" class="mdl-progress mdl-js-progress" value="0" max="6"></progress>
+                    <ul id="ul_avancement_demande" class="mdl-list"></ul>
+                </div>
+            </article>
+            <article id="local" class="mdl-card mdl-shadow--2dp cache">
+                <div class="mdl-card__title">
+                    <h2 class="mdl-card__title-text">Fonctionnalité locale</h2>
+                </div>
+                <button id="btn_qr" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+                    Qrcode
+                </button>
+                <a id="lien_mdp" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+                    href="./mdp.html">
+                    Mot de passe enregistré
+                </a>
+            </article>
+            <article id="ville" class="mdl-card mdl-shadow--2dp cache">
+                <div class="mdl-card__title">
+                    <h2 class="mdl-card__title-text">Sélection de la ville</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                    <label for="select_utilisateur_pays" class="mdl-textfield__label">Choisir un pays</label>
+                    <select id="select_utilisateur_pays" class="mdl-textfield__input">
+                        <option value="none">-Pas sélectionné-</option>
+                    </select>
+                    <label id="label_utilisateur_ville" for="select_utilisateur_ville"
+                        class="mdl-textfield__label cache">Choisir une ville</label>
+                    <select id="select_utilisateur_ville" class="mdl-textfield__input cache"></select>
+                    <button id="partage_info" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+                        Partager les infos d'avion
+                    </button>
+                    <button id="enregistre_info"
+                        class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+                        Enregister les infos d'avion
+                    </button>
+                </div>
+            </article>
+            <article id="avion" class="mdl-card mdl-shadow--2dp cache">
+                <div class="mdl-card__title">
+                    <h2 class="mdl-card__title-text">Informations sur les avions</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                    <p id="info_avion"></p>
+                    <input type="button" id="btn_affiche_avion"
+                        class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+                        value="Carte des avions">
+                    <div id="liste_avion"></div>
+                </div>
+            </article>
+        </section>
+
+        <section id="qr" class="cache">
+            <article id="info_qr">
+                <button id="btn_act_flash_qr" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+                    Allumer la flash
+                </button>
+                <button id="btn_desa_flash_qr"
+                    class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored cache">
+                    Desactiver la flash
+                </button>
+                <button id="btn_stop_qr" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+                    Arrêter
+                </button>
+            </article>
+            <article id="erreur_qr" class="cache">
+                <p id="p_erreur_qr">L'application n'a pas pu acceder a la caméra.</p>
+                <button id="btn_erreur_qr" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+                    Accéder aux paramètres
+                </button>
+            </article>
+        </section>
+
+        <section id="info_map" class="cache">
+            <div id="map"></div>
+        </section>
+    </main>
+    <footer>
+        <div class="mdl-snackbar mdl-js-snackbar" aria-live="assertive" aria-atomic="true" aria-relevant="text">
+            <div class="mdl-snackbar__text"></div>
+            <button type="button" class="mdl-snackbar__action"></button>
+        </div>
+    </footer>
+</body>
+
+</html>

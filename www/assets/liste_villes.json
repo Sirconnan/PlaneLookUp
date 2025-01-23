@@ -1,0 +1,92 @@
+{
+    "Algérie": [
+        "Alger",
+        "Annaba",
+        "Blida",
+        "Constantine",
+        "Oran"
+    ],
+    "Angleterre": [
+        "Birmingham",
+        "Glasgow",
+        "Liverpool",
+        "Londres",
+        "Manchester"
+    ],
+    "Argentine": [
+        "Buenos Aires",
+        "Córdoba",
+        "La Plata",
+        "Mendoza",
+        "Rosario"
+    ],
+    "Australie": [
+        "Adélaïde",
+        "Brisbane",
+        "Melbourne",
+        "Perth",
+        "Sydney"
+    ],
+    "Brésil": [
+        "Brasília",
+        "Fortaleza",
+        "Rio de Janeiro",
+        "Salvador",
+        "São Paulo"
+    ],
+    "Canada": [
+        "Calgary",
+        "Edmonton",
+        "Montréal",
+        "Ottawa",
+        "Toronto"
+    ],
+    "Chine": [
+        "Canton",
+        "Chengdu",
+        "Pékin",
+        "Shanghai",
+        "Shenzhen"
+    ],
+    "Etats-Unis": [
+        "Chicago",
+        "Los Angeles",
+        "New York",
+        "San Francisco",
+        "Washington"
+    ],
+    "France": [
+        "Annecy",
+        "Bordeaux",
+        "Lille",
+        "Lyon",
+        "Marseille",
+        "Montpellier",
+        "Nantes",
+        "Nice",
+        "Paris",
+        "Strasbourg",
+        "Toulouse"
+    ],
+    "Inde": [
+        "Bangalore",
+        "Chennai",
+        "Delhi",
+        "Hyderabad",
+        "Mumbai"
+    ],
+    "Kazakhstan": [
+        "Aktobe",
+        "Almaty",
+        "Chimkent",
+        "Karaganda",
+        "Noursoultan"
+    ],
+    "Russie": [
+        "Iekaterinbourg",
+        "Moscou",
+        "Nijni Novgorod",
+        "Novossibirsk",
+        "Saint-Pétersbourg"
+    ]
+}

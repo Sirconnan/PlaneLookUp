@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Medrick Mariet">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <link rel="stylesheet" href="./css/default.css">
+    <link rel="stylesheet" href="./css/material.min.css">
+    <link rel="stylesheet" href="./css/material-icons.min.css">
+    <link rel="stylesheet" href="./iconfont/filled.css">
+    <link rel="stylesheet" href="./iconfont/material-icons.css">
+    <link rel="stylesheet" href="./iconfont/outlined.css">
+    <link rel="stylesheet" href="./iconfont/round.css">
+    <link rel="stylesheet" href="./iconfont/sharp.css">
+    <link rel="stylesheet" href="./iconfont/two-tone.css">
+    <link rel="stylesheet" href="./css/layout.css">
+    <link rel="icon" type="image/icon" href="./img/favicon.ico">
+    <script defer src="cordova.js"></script>
+    <script defer src="./js/material.min.js"></script>
+    <script defer src="./lib/crypto-js/crypto-js.js"> </script>
+    <script defer src="./js/scrtip_mdp.js"> </script>
+    <title>Plane Look Up</title>
+</head>
+
+<body>
+    <main>
+        <section id="mdp">
+            <article id="erreur_identification" class="mdl-card mdl-shadow--2dp cache">
+                <div class="mdl-card__title">
+                    <h2 class="mdl-card__title-text">Erreur d'identification</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                    <p id="p_erreur"></p>
+                </div>
+                <button id="btn_reassayer_identification"
+                    class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" disabled>Réessayer</button>
+                <a href="index.html" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Retour</a>
+            </article>
+            <article id="afficher_mdp" class="mdl-card mdl-shadow--2dp cache">
+                <div class="mdl-card__title">
+                    <h2 class="mdl-card__title-text">Liste mot de passe</h2>
+                </div>
+                <table id="table_mdp" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp"></table>
+                <button id="btn_demande_ajout_mdp"
+                    class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Ajouter un mot de
+                    passe</button>
+                <button id="btn_demande_supr_mdp"
+                    class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Retirer un mot de
+                    passe</button>
+
+            </article>
+            <article id="ajouter_mdp" class="mdl-card mdl-shadow--2dp cache">
+                <div class="mdl-card__title">
+                    <h2 class="mdl-card__title-text">Ajouter un mot de passe</h2>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="nom_mdp" name="nom_mdp" required>
+                    <label class="mdl-textfield__label" for="nom_mdp">Nom de l'application</label>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="login_mdp" name="login_mdp" required>
+                    <label class="mdl-textfield__label" for="login_mdp">Login</label>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="password" id="mdp_mdp" name="mdp_mdp" required>
+                    <label class="mdl-textfield__label" for="mdp_mdp">Mot de passe</label>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="password" id="verif_mdp_mdp" name="verif_mdp_mdp"
+                        required>
+                    <label class="mdl-textfield__label" for="verif_mdp_mdp">Vérifier mot de passe</label>
+                </div>
+                <button id="btn_ajout_mdp"
+                    class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Ajouter</button>
+            </article>
+            <article id="retirer_mdp" class="mdl-card mdl-shadow--2dp cache">
+                <div class="mdl-card__title">
+                    <h2 class="mdl-card__title-text">Retirer un mot de passe</h2>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <select id="select_retirer_mdp" class="mdl-textfield__input"></select>
+                    <label class="mdl-textfield__label" for="nom_retirer_mdp">Nom de l'application</label>
+                </div>
+                <button id="btn_supr_mdp"
+                    class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Retirer</button>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <div class="mdl-snackbar mdl-js-snackbar" aria-live="assertive" aria-atomic="true" aria-relevant="text">
+            <div class="mdl-snackbar__text"></div>
+            <button type="button" class="mdl-snackbar__action"></button>
+        </div>
+    </footer>
+</body>
+
+</html>

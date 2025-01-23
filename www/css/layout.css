@@ -1,0 +1,115 @@
+@charset "UTF-8";
+
+/**************************************************************************************************
+                                            Pour tous    
+**************************************************************************************************/
+body,
+main,
+section,
+#map {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #d0d0d0;
+    font-family: 'Roboto', sans-serif;
+}
+
+ul {
+    list-style: none;
+}
+
+
+
+/**************************************************************************************************
+                                           MDL   
+**************************************************************************************************/
+.mdl-card {
+    width: 95%;
+    max-width: 512px;
+    margin: 1em auto;
+    padding: 1em;
+    align-items: center;
+}
+
+.mdl-card__title {
+    width: 100%;
+    background-color: #3f51b5;
+    color: white;
+}
+
+.mdl-progress {
+    width: 100%;
+    margin-bottom: 1em;
+}
+
+.mdl-card__supporting-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mdl-list__item {
+    list-style-type: none;
+    padding: 0.5em 0;
+}
+
+.mdl-textfield__label {
+    position: static;
+    text-align: center;
+    color: #3f51b5;
+    margin-bottom: 0.5em;
+}
+
+.mdl-textfield__input {
+    padding: 0.5em;
+    margin-bottom: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.mdl-textfield__input:focus {
+    border-color: #3f51b5;
+    outline: none;
+}
+
+.mdl-button {
+    margin: 0.5em;
+    border-radius: 4px;
+}
+
+/**************************************************************************************************
+                                           Class liste   
+**************************************************************************************************/
+.cache {
+    display: none !important;
+}
+
+.p_avion {
+    color: #3f51b5;
+    text-align: center;
+    padding: 0.5em;
+}
+
+.souligner {
+    text-decoration: underline;
+}
+
+
+/**************************************************************************************************
+                                           Id Liste   
+**************************************************************************************************/
+#chargement_loc {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#btn_qr {
+    margin-top: 2em;
+}
