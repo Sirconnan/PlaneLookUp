@@ -380,7 +380,7 @@ function demande_ville() {
 	if (localStorage.getItem(ville_nom)) { // Si on a déjà demandé les infos de la ville
 		info_avion(ville_nom);
 	} else { // Sinon on demande les infos de la ville
-		get("https://api.opencagedata.com/geocode/v1/json?q=" + ville_nom + "&key=cfc05245add24186bbe869a5ed1ad49f", "localisation_ville");
+		get("https://api.opencagedata.com/geocode/v1/json?q=" + ville_nom + "&key=toadd", "localisation_ville");
 	}
 }
 
