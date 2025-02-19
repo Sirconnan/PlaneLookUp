@@ -1,6 +1,9 @@
 /************************************************************************************************************************************************************************/
 /***************************************************************  Variables globales  ***********************************************************************************/
 /************************************************************************************************************************************************************************/
+
+const KEY = // add the key
+
 const ARTICLE_CHARGEMENT = document.getElementById("chargement"); // L'élément de chargement
 const PROGRESS_DEMMANDE = document.getElementById("progress_demande"); // La barre de progression
 const UL_AVANCEMENT_DEMANDE = document.getElementById("ul_avancement_demande"); // La liste des étapes de la demande
@@ -170,7 +173,7 @@ function geolocationSuccess(position) {
 	console.log("Fonction: geolocationSuccess");
 
 	// On récupère la ville où l'on se trouve
-	get("https://api.opencagedata.com/geocode/v1/json?q=" + position.coords.latitude + "%2C" + position.coords.longitude + "&key=cfc05245add24186bbe869a5ed1ad49f", "trouver_ville");
+	get("https://api.opencagedata.com/geocode/v1/json?q=" + position.coords.latitude + "%2C" + position.coords.longitude + "&key=" + KEY, "trouver_ville");
 
 	document.getElementById("chargement_loc").classList.add('cache'); // On cache le chargement de la localisation
 }
@@ -380,7 +383,7 @@ function demande_ville() {
 	if (localStorage.getItem(ville_nom)) { // Si on a déjà demandé les infos de la ville
 		info_avion(ville_nom);
 	} else { // Sinon on demande les infos de la ville
-		get("https://api.opencagedata.com/geocode/v1/json?q=" + ville_nom + "&key=toadd", "localisation_ville");
+		get("https://api.opencagedata.com/geocode/v1/json?q=" + ville_nom + "&key=" + KEY, "localisation_ville");
 	}
 }
 
